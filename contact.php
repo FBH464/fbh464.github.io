@@ -24,7 +24,7 @@ if($_POST) {
     .'Content-type: text/html; charset=utf-8' . "\r\n"
     .'From: ' . $visitor_email . "\r\n";
      
-    if(mail($recipient, $email_title, $visitor_message, $headers)) {
+    if(mail($recipient, $visitor_message, $headers)) {
         echo "<p>Gracias por contactarte conmigo, $visitor_name.</p>";
     } else {
         echo '<p>Lo sentimos, pero el correo electrónico no llegó.</p>';

@@ -77,25 +77,22 @@
 							<h2 class="major">Contáctame</h2>
 							<p>Soy un desarrollador apasionado, con habilidades en manejo de herramientas de Software, 
 								me gusta trabajar en equipo, tengo un lado creativo y lógico para desarrollar productos tecnológicos.</p>
-							<form method="post" action="#">
-								<div class="fields">
-									<div class="field">
-										<label for="name">Nombre</label>
-										<input type="text" name="name" id="name" />
-									</div>
-									<div class="field">
-										<label for="email">Email</label>
-										<input type="email" name="email" id="email" />
-									</div>
-									<div class="field">
-										<label for="message">Mensaje</label>
-										<textarea name="message" id="message" rows="4"></textarea>
-									</div>
-								</div>
-								<ul class="actions">
-									<li><input type="submit" value="Enviar mensaje" /></li>
-								</ul>
+							<form action="contact.php" method="post">
+							<div class="elem-group">
+								<label for="name">Nombre</label>
+								<input type="text" id="name" name="visitor_name" placeholder="Nombre del destinatario" pattern=[A-Z\sa-z]{3,20} required>
+							</div>
+							<div class="elem-group">
+								<label for="email">E-mail</label>
+								<input type="email" id="email" name="visitor_email" placeholder="Correo electrónico" required>
+							</div>
+							<div class="elem-group">
+								<label for="message">Mensaje</label>
+								<textarea id="message" name="visitor_message" required></textarea>
+							</div>
+							<button type="submit">Enviar Mensaje</button>
 							</form>
+
 							<ul class="contact">
 								<li class="icon solid fa-home">
 									Ibarra - Ecuador
