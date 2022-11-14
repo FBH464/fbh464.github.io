@@ -77,33 +77,35 @@
 							<h2 class="major">Contáctame</h2>
 							<p>Soy un desarrollador apasionado, con habilidades en manejo de herramientas de Software, 
 								me gusta trabajar en equipo, tengo un lado creativo y lógico para desarrollar productos tecnológicos.</p>
-							<form action="contact.php" method="post">
+							<form id="form" action="" class="form">
 							<div class="elem-group">
 								<label for="name">Nombre</label>
-								<input type="text" id="name" name="visitor_name" placeholder="Nombre del destinatario" pattern=[A-Z\sa-z]{3,20} required>
+								<input type="text" id="name" name="textname" placeholder="Nombre del destinatario" pattern=[A-Z\sa-z]{3,20} required>
 							</div>
 							<div class="elem-group">
 								<label for="email">E-mail</label>
-								<input type="email" id="email" name="visitor_email" placeholder="Correo electrónico" required>
+								<input type="email" id="email" name="textemail" placeholder="Correo electrónico" required>
 							</div>
 							<div class="elem-group">
 								<label for="message">Mensaje</label>
-								<textarea id="message" name="visitor_message" required></textarea>
+								<textarea id="message" name="textmessage" required></textarea>
 							</div>
 							<button type="submit">Enviar Mensaje</button>
-							</form>
+							</form>							
 
 							<ul class="contact">
 								<li class="icon solid fa-home">
 									Ibarra - Ecuador
 								</li>
 								<li class="icon solid fa-phone"><a href="tel:+593964100088">(+593) 964 100 088</a></li>
-								<li class="icon solid fa-envelope"><a href="mailto:francis.bh.4264@gmail.com">francis.bh.4264@gmail.com</a></li>
+								<li class="icon solid fa-envelope"><a href="mailto:francis.bh.4264@gmail.com?subject=Contacto formulario página web">francis.bh.4264@gmail.com</a></li>
 								<li class="icon brands fa-github"><a href="https://github.com/FBH464" target="_blank">GitHub</a></li>
 								<li class="icon brands fa-linkedin"><a href="https://www.linkedin.com/in/francis-benavides-699119197" target="_blank">LinkedIn</a></li>
 							</ul>
 						</div>
 					</section>
+					<a href="mailto:francis.bh.4264@gmail.com" id="mensajeDeEnvio" ></a>
+
 
 			</div>
 
@@ -115,5 +117,18 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 
+			<script>
+				const $form = document.querySelector('#form')
+				const $buttonMailto = document.querySelector('#mensajeDeEnvio')
+
+				$form.addEventListener('submit', handleSubmit)
+
+				function handleSubmit(event){
+					event.preventDefault()
+					const form = new FormData(this)
+					$buttonMailto.setAttribute('href', `mailto:francis.bh.4264@gmail.com?subject=Contacto formulario página web, de Nombre: ${form.get('textname')}, Correo: ${form.get('textemail')}&body=${form.get('textmessage')}`)
+					$buttonMailto.click()
+				}
+			</script>
 	</body>
 </html>
